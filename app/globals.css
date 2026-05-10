@@ -1,0 +1,133 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import '@fontsource/jetbrains-mono/400.css';
+@import '@fontsource/jetbrains-mono/500.css';
+@import '@fontsource/jetbrains-mono/600.css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: #0d0d0d;
+  --foreground: #e0e0e0;
+  --card: #0d0d0d;
+  --card-foreground: #e0e0e0;
+  --popover: #0d0d0d;
+  --popover-foreground: #e0e0e0;
+  --primary: #6c4ef2;
+  --primary-foreground: #0d0d0d;
+  --secondary: #1e1e1e;
+  --secondary-foreground: #e0e0e0;
+  --muted: #1e1e1e;
+  --muted-foreground: #555555;
+  --accent: #4f8ef7;
+  --accent-foreground: #0d0d0d;
+  --destructive: #dc2626;
+  --destructive-foreground: #fef2f2;
+  --border: #1e1e1e;
+  --input: #1e1e1e;
+  --ring: #6c4ef2;
+  --radius: 0.25rem;
+
+  /* Omnix specific tokens */
+  --omnix-bg: #0d0d0d;
+  --omnix-panel-border: #1e1e1e;
+  --omnix-text-primary: #e0e0e0;
+  --omnix-text-muted: #555555;
+  --omnix-accent-purple: #6c4ef2;
+  --omnix-accent-blue: #4f8ef7;
+  --omnix-gradient: linear-gradient(90deg, #6c4ef2, #4f8ef7);
+  --omnix-success: #22c55e;
+  --omnix-error: #ef4444;
+  --omnix-line-added: #22c55e;
+  --omnix-line-removed: #ef4444;
+  --omnix-line-added-bg: rgba(34, 197, 94, 0.1);
+  --omnix-line-removed-bg: rgba(239, 68, 68, 0.1);
+}
+
+@theme inline {
+  --font-sans: 'JetBrains Mono', monospace;
+  --font-mono: 'JetBrains Mono', monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Omnix gradient wordmark utility */
+.omnix-gradient-text {
+  background: linear-gradient(90deg, #6c4ef2, #4f8ef7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Omnix gradient underline for active states */
+.omnix-gradient-bar {
+  background: linear-gradient(90deg, #6c4ef2, #4f8ef7);
+}
+
+/* Scrollbar styling for IDE look */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0d0d0d;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
+
+/* Selection styling */
+::selection {
+  background: rgba(108, 78, 242, 0.3);
+}
+
+/* Launch screen prompt chips */
+.chip {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 20px;
+  padding: 6px 12px;
+  color: #666;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+}
+.chip:hover {
+  border-color: #4f8ef7;
+  color: #aaa;
+}
